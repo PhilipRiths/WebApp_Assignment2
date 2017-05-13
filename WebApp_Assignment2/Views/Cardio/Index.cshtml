@@ -1,0 +1,10 @@
+﻿@model GymBuddyWebApp.Domain.Cardio
+
+<form asp-controller="Cardio" asp-action="Edit" method="post">
+    Id:<br />
+    <div>
+        <input type="text" asp-for="Id"></>
+        <span asp-validation-for="Id" class="text-danger"></span><br />
+    </div>
+    <button type="Submit"> Edit</button>
+</form>

@@ -1,7 +1,73 @@
-
+@model GymBuddyWebApp.Domain.Weights
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<form asp-controller="Weights" asp-action="Update" method="post">
 
+    <b>Exercise</b> :<br>
+
+    <select asp-for="ExerciseType">
+        <option value="">All</option>
+        <option value="">Chest</option>
+        <option value="Benchpress">Benchpress</option>
+        <option value="Dumbellpress">Dumbellpress,</option>
+        <option value="Inclinedumbellpress">Inclinedumbellpress</option>
+        <option value="Declinedumbellpress">Declinedumbellpress</option>
+        <option value="CableFlysUpper">CableFlysUpper</option>
+        <option value="CableFlysLower">CableFlysLower</option>
+        <option value="CableFlysMid"> CableFlysMid</option>
+        <option value="">Triceps</option>
+        <option value="Dips">Dips</option>
+        <option value="TricepBenchPress">TricepBenchPress</option>
+        <option value="SkullCrusher">SkullCrusher</option>
+        <option value="Tricepspress">Tricepspress</option>
+        <option value="">Biceps</option>
+        <option value="BicepCurls">BicepCurls</option>
+        <option value="HammerCurls">HammerCurls</option>
+        <option value="">Back</option>
+        <option value="DeadLifts">DeadLifts</option>
+        <option value="RomanianRows">RomanianRows</option>
+        <option value="SittingRows">SittingRows</option>
+        <option value="PullUps">PullUps</option>
+        <option value="ChinUps">ChinUps</option>
+        <option value="">Legs</option>
+        <option value="Squats">Squats</option>
+        <option value="Legpress">Legpress</option>
+        <option value="Stepdowns">Stepdowns</option>
+        <option value="">Shoulders</option>
+        <option value="ShoulderPress">ShoulderPress</option>
+        <option value="BackWardsShoulderPress">BackWardsShoulderPress</option>
+        <option value="MilitaryPress">MilitaryPress</option>
+        <option value="ShoulderFlys">ShoulderFlys</option>
+        <option value="">Abs</option>
+        <option value="SitUps">SitUps</option>
+        <option value="AbCrunchs">AbCrunchs</option>
+    </select>        <br />
+    <b>Person Id</b>:<br>
+    <div>
+        <input type="text" asp-for="PersonId"></>
+        <span asp-validation-for="PersonId" class="text-danger"></span><br />
+    </div>
+    <b>Reps</b>:<br>
+    <div>
+        <input type="text" asp-for="Reps"></>
+        <span asp-validation-for="Reps" class="text-danger"></span><br />
+    </div>
+    <b>Sets</b>:<br>
+    <div>
+        <input type="text" asp-for="Sets"></>
+        <span asp-validation-for="Sets" class="text-danger"></span><br />
+    </div>
+    <b>Weight</b>:<br>
+    <div>
+        <input type="text" asp-for="Weight"></>
+        <span asp-validation-for="Weight" class="text-danger"></span><br />
+    </div>
+    <b>Date</b>:<br>
+    <div>
+        <input type="date" asp-for="Date"></>
+        <span asp-validation-for="Date" class="text-danger"></span><br />
+    </div>
+    <button type="submit">Update</button>
+</form>

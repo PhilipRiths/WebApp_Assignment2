@@ -58,11 +58,34 @@ namespace WebApp_Assignment2.Controllers
 
             return View("Details", person);
         }
+        
+        
+        public IActionResult Update(int id, Person person)
+        {
+            if (person == null || person.Id != id)
+            {
+                return BadRequest();
+            }
 
+            var findPerson = context.Persons.Find(id);
+            if (findPerson == null)
+            {
+                return NotFound();
+            }
+            findPerson.Id = person.Id;
+            findPerson.Age = person.Age;
+            findPerson.FirstName = person.FirstName;
+            findPerson.LastName = person.LastName;
+            findPerson.Height = person.Height;
+            findPerson.Weight = person.Height;
+
+
+            context.Persons.Update(findPerson);
+            context.SaveChanges();
+            return View("Index");
+        }
         public async Task<IActionResult> Edit(int id)
         {
-
-
             var person = await context.Persons.SingleAsync(p => p.Id == id);
 
             if (person == null)
@@ -79,15 +102,24 @@ namespace WebApp_Assignment2.Controllers
                 }
                 catch (DbUpdateException /* ex */)
                 {
-                    //Log the error (uncomment ex variable name and write a log.)
                     ModelState.AddModelError("", "Unable to save changes. " +
                                                  "Try again, and if the problem persists, " +
                                                  "see your system administrator.");
                 }
             }
             return View(person);
+        }
+        public IActionResult Delete(int id)
+        {
+            var person = context.Persons.Find(id);
+            if (person == null)
+            {
+                return NotFound();
+            }
 
-
+            context.Persons.Remove(person);
+            context.SaveChanges();
+            return View("Index");
         }
     }
 }
