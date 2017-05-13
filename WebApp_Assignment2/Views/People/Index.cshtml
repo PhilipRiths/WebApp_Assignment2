@@ -1,0 +1,29 @@
+@using GymBuddyWebApp.Domain
+@model GymBuddyWebApp.Domain.Person   
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>People Page</h2>
+
+<form asp-controller="People" asp-action="Details" method="post">
+    Id:<br/>
+    <div>
+        <input type="text" asp-for="Id"></>
+        <span asp-validation-for="Id" class="text-danger"></span><br />
+    </div>
+
+    <button type="Submit"> Details</button>
+</form>
+
+<form asp-controller="People" asp-action="Create" method="post">
+    <button type="Submit"> Create</button>
+</form>
+<form asp-controller="People" asp-action="Edit" method="post">
+    Id:<br/>
+    <div>
+        <input type="text" asp-for="Id"></>
+        <span asp-validation-for="Id" class="text-danger"></span><br />
+    </div>
+    <button type="Submit"> Edit</button>
+</form>

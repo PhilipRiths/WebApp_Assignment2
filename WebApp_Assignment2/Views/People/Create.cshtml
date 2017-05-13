@@ -1,0 +1,40 @@
+﻿@model GymBuddyWebApp.Domain.Person
+
+@{
+    ViewData["Title"] = "People";
+}
+<form asp-controller="People" asp-action="ValidatePerson" method="post">
+    <div>
+        First name:<br>
+        <input type="text" asp-for="FirstName"><br>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    LastName:<br>
+    <div>
+        <input type="text" asp-for="LastName"></>
+        <span asp-validation-for="LastName" class="text-danger"></span><br />
+    </div>
+    Age:<br>
+    <div>
+        <input type="text" asp-for="Age"></>
+        <span asp-validation-for="Age" class="text-danger"></span><br />
+    </div>
+    Height:<br/>
+    <div>
+        <input type="text" asp-for="Height"></>
+        <span asp-validation-for="Height" class="text-danger"></span><br />
+    </div>
+    Weight:<br/>
+    <div>
+        <input type="text" asp-for="Weight"></>
+        <span asp-validation-for="Weight" class="text-danger"></span><br />
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <button type="Submit"> Create</button>
+
+</form>
+
+   

@@ -1,0 +1,48 @@
+@model GymBuddyWebApp.Domain.Person
+@{
+    ViewData["Title"] = "Edit";
+}
+<p>@Model.Id</p>
+<p>@Model.FirstName</p>
+<p>@Model.LastName</p>
+<p>@Model.Height</p>
+<p>@Model.Weight</p>
+<p>@Model.Age</p>
+<p></p>
+<form asp-controller="People" asp-action="Edit" method="get">
+    <div>
+        ID:<br>
+        <input type="text" asp-for="Id"><br>
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+    <div>
+        First name:<br>
+        <input type="text" asp-for="FirstName"><br>
+        <span asp-validation-for="FirstName" class="text-danger"></span>
+    </div>
+    LastName:<br>
+    <div>
+        <input type="text" asp-for="LastName"></>
+        <span asp-validation-for="LastName" class="text-danger"></span><br/>
+    </div>
+    Age:<br>
+    <div>
+        <input type="text" asp-for="Age"></>
+        <span asp-validation-for="Age" class="text-danger"></span><br/>
+    </div>
+    Height:<br/>
+    <div>
+        <input type="text" asp-for="Height"></>
+        <span asp-validation-for="Height" class="text-danger"></span><br/>
+    </div>
+    Weight:<br/>
+    <div>
+        <input type="text" asp-for="Weight"></>
+        <span asp-validation-for="Weight" class="text-danger"></span><br/>
+    </div>
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+
+    <button type="Submit"> Update</button>
+</form>

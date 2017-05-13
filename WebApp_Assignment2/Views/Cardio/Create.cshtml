@@ -1,0 +1,38 @@
+﻿@model GymBuddyWebApp.Domain.Cardio
+
+<form asp-controller="Cardio" asp-action="SaveCardio" method="post">
+    
+        Cardio type:<br>
+    
+        <select asp-for="CardioType" >
+            <option value="">All</option>
+            <option value="Jogging">Jogging</option>
+            <option value="Crosstrainer">Crosstrainer</option>
+            <option value="Bicycling">Bicycling</option>
+            <option value="Other">Other</option>
+        </select><br/>
+  
+    Distance:<br>
+    <div>
+        <input type="text" asp-for="Distance"></>
+        <span asp-validation-for="Distance" class="text-danger"></span><br />
+    </div>
+    Time(Hours/Minutes):<br>
+    <div>
+        <input type="Text" asp-for="Time"></>
+        <span asp-validation-for="Time" class="text-danger"></span><br />
+    </div>
+    Date:<br />
+    <div>
+        <input type="date" asp-for="Date"></>
+        <span asp-validation-for="Date" class="text-danger"></span><br />
+    </div>
+    PersonId:<br />
+    <div>
+        <input type="number" asp-for="PersonId"></>
+        <span asp-validation-for="PersonId" class="text-danger"></span><br />
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <button type="submit"> Create</button>
+
+</form>
