@@ -1,0 +1,21 @@
+﻿@model GymBuddyWebApp.Domain.CardioContest
+
+<form asp-controller="CardioContest" asp-action="SaveCompetition" method="post">
+    
+    Cardio type:<br>
+    
+    <select asp-for="CardioTypes" >
+        <option value="Jogging">Jogging</option>
+        <option value="Crosstrainer">Crosstrainer</option>
+        <option value="Bicycling">Bicycling</option>
+        <option value="Other">Other</option>
+    </select><br/>
+    Name:<br>
+    <div>
+        <input type="Text" asp-for="Name"></>
+        <span asp-validation-for="Name" class="text-danger"></span><br />
+    </div>
+    
+    <button type="submit"> Create</button>
+
+</form>

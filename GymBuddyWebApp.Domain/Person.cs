@@ -15,7 +15,7 @@ namespace GymBuddyWebApp.Domain
         public double Weight { get; set; }
         public virtual ICollection<Weights> WeightExercises { get; set; }
         public virtual ICollection<Cardio> CardioExercises { get; set; }
-
-
+        public virtual ICollection<PersonCardioCompetiotion> Competitions { get; set; }
+      
     }
 }

@@ -9,8 +9,8 @@ using GymBuddyWebApp.Domain;
 namespace GymBuddyWebApp.Data.Migrations
 {
     [DbContext(typeof(GymBuddyContext))]
-    [Migration("20170513100919_AgeAdded")]
-    partial class AgeAdded
+    [Migration("20170517161709_fixd")]
+    partial class fixd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,20 @@ namespace GymBuddyWebApp.Data.Migrations
                     b.ToTable("Cardio");
                 });
 
+            modelBuilder.Entity("GymBuddyWebApp.Domain.CardioContest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CardioTypes");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CardioContests");
+                });
+
             modelBuilder.Entity("GymBuddyWebApp.Domain.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -58,6 +72,24 @@ namespace GymBuddyWebApp.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Persons");
+                });
+
+            modelBuilder.Entity("GymBuddyWebApp.Domain.PersonCardioCompetiotion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("CardioContestId");
+
+                    b.Property<int>("PersonId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CardioContestId");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Competitions");
                 });
 
             modelBuilder.Entity("GymBuddyWebApp.Domain.Weights", b =>
@@ -88,6 +120,19 @@ namespace GymBuddyWebApp.Data.Migrations
                 {
                     b.HasOne("GymBuddyWebApp.Domain.Person", "Person")
                         .WithMany("CardioExercises")
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("GymBuddyWebApp.Domain.PersonCardioCompetiotion", b =>
+                {
+                    b.HasOne("GymBuddyWebApp.Domain.CardioContest", "CardioContest")
+                        .WithMany("Competitions")
+                        .HasForeignKey("CardioContestId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("GymBuddyWebApp.Domain.Person", "Person")
+                        .WithMany("Competitions")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

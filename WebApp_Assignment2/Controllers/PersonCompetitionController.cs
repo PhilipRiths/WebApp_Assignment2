@@ -10,63 +10,60 @@ using Microsoft.EntityFrameworkCore;
 
 namespace WebApp_Assignment2.Controllers
 {
-    public class CardioController : Controller
+    public class PersonCompetitionController : Controller
     {
         GymBuddyContext context = new GymBuddyContext();
 
         public IActionResult Index()
-
-        {
-            return View();
-        }
-        // GET: Cardio
-        public ActionResult Create()
         {
             return View();
         }
 
-        public ActionResult SaveCardio(Cardio cardio)
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        public IActionResult SaveCompetition(PersonCardioCompetiotion competition)
         {
             if (!ModelState.IsValid)
             {
                 return View("Create");
             }
-            context.Cardio.Add(cardio);
+            context.Competitions.Add(competition);
             context.SaveChanges();
-            return View("CardioAdded", cardio);
-
+            return View("CompetitionAdded", competition);
         }
-        public IActionResult Update(int id, Cardio cardio)
+        public IActionResult Update(int id, PersonCardioCompetiotion competition)
         {
-            if (cardio == null || cardio.Id != id)
+            if (competition == null || competition.Id != id )
             {
                 return BadRequest();
             }
 
-            var findCardioSession = context.Cardio.Find(id);
-            if (findCardioSession == null)
+            var findCompetition = context.Competitions.Find(id);
+            if (findCompetition == null)
             {
                 return NotFound();
             }
-            findCardioSession.Id = cardio.Id;
-            findCardioSession.CardioType = cardio.CardioType;
-            findCardioSession.Date = cardio.Date;
-            findCardioSession.Distance = cardio.Distance;
-            findCardioSession.Time = cardio.Time;
-            findCardioSession.Person = cardio.Person;
-            findCardioSession.PersonId = cardio.PersonId;
+            findCompetition.Id = competition.Id;
+            findCompetition.CardioContestId = competition.CardioContestId;
+            findCompetition.PersonId = competition.PersonId;
+            findCompetition.CardioContest = competition.CardioContest;
+            findCompetition.Person = competition.Person;
+          
 
 
-            context.Cardio.Update(findCardioSession);
+            context.Competitions.Update(findCompetition);
             context.SaveChanges();
             return View("Index");
         }
         public async Task<IActionResult> Edit(int id)
         {
-            var cardio = await context.Cardio
-           .SingleAsync(c => c.Id == id);
+            var competition = await context.Competitions
+                .SingleAsync(w => w.Id == id);
 
-            if (cardio == null)
+            if (competition == null)
             {
                 return NotFound();
             }
@@ -74,9 +71,9 @@ namespace WebApp_Assignment2.Controllers
             {
                 try
                 {
-                    context.Update(cardio);
+                    context.Update(competition);
                     await context.SaveChangesAsync();
-                    return View("Edit", cardio);
+                    return View("Edit", competition);
                 }
                 catch (DbUpdateException /* ex */)
                 {
@@ -85,19 +82,19 @@ namespace WebApp_Assignment2.Controllers
                                                  "see your system administrator.");
                 }
             }
-            return View(cardio);
+            return View(competition);
         }
         public IActionResult Delete(int id)
         {
-            var cardio = context.Cardio.Find(id);
-            if (cardio == null)
+            var competition = context.Competitions.Find(id);
+            if (competition == null)
             {
                 return NotFound();
             }
 
-            context.Cardio.Remove(cardio);
+            context.Competitions.Remove(competition);
             context.SaveChanges();
-            return View("CardioDeleted", cardio);
+            return View("CompetitionDeleted", competition);
         }
     }
 }

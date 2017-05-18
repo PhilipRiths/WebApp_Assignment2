@@ -96,7 +96,7 @@ namespace WebApp_Assignment2.Controllers
 
             context.Weights.Remove(weights);
             context.SaveChanges();
-            return View("Index");
+            return View("GymSessionDeleted", weights);
         }
     }
 }

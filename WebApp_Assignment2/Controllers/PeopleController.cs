@@ -119,7 +119,7 @@ namespace WebApp_Assignment2.Controllers
 
             context.Persons.Remove(person);
             context.SaveChanges();
-            return View("Index");
+            return View("PersonDeleted", person);
         }
     }
 }

@@ -1,0 +1,17 @@
+﻿@model GymBuddyWebApp.Domain.PersonCardioCompetiotion
+<form asp-controller="PersonCompetition" asp-action="SaveCompetition" method="post">
+    
+  
+    Cardio contest id:<br>
+    <div>
+        <input type="number" asp-for="CardioContestId"></>
+        <span asp-validation-for="CardioContestId" class="text-danger"></span><br />
+    </div>
+    Person id:<br>
+    <div>
+        <input type="number" asp-for="PersonId"></>
+        <span asp-validation-for="PersonId" class="text-danger"></span><br />
+    </div>
+    <button type="submit"> Create</button>
+   
+</form>

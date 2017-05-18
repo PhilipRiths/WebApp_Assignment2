@@ -1,18 +1,21 @@
-﻿@model GymBuddyWebApp.Domain.Cardio
-
-<form asp-controller="Cardio" asp-action="Edit" method="post">
-    Id:<br />
+﻿@model GymBuddyWebApp.Domain.CardioContest
+<form asp-controller="CardioContest" asp-action="Edit" method="post">
+    Edit by Id:<br />
     <div>
         <input type="text" asp-for="Id"></>
         <span asp-validation-for="Id" class="text-danger"></span><br />
     </div>
     <button type="Submit"> Edit</button>
 </form>
-<form asp-controller="Cardio" asp-action="Delete" method="post">
+<form asp-controller="CardioContest" asp-action="Delete" method="post">
     Delete by Id:<br />
     <div>
         <input type="text" asp-for="Id"></>
         <span asp-validation-for="Id" class="text-danger"></span><br />
     </div>
     <button type="Submit"> Delete</button>
+</form>
+<form asp-controller="CardioContest" asp-action="Create" method="post">
+    Create contest<br />
+    <button type="Submit">Create</button>
 </form>
