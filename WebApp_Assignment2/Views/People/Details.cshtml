@@ -1,4 +1,4 @@
-@model GymBuddyWebApp.Domain.Person
+﻿@model GymBuddyWebApp.Domain.Person
 <meta charset="utf-8" />
 @{
     ViewData["Title"] = "Title";
@@ -11,21 +11,26 @@
 <p>Weight: @Model.Weight</p>
 
 <ul>
-    
-    @foreach (var exercise in Model.WeightExercises)
-    {       <p >Exercise</p>
-        <p>------------------------</p>
-        <p>Id: @exercise.Id</p>
-        <p>Date: @exercise.Date</p>
-        <p>Exercise type: @exercise.ExerciseType</p>
-        <p>Reps: @exercise.Reps</p>
-        <p>Sets: @exercise.Sets</p>
-        <p>Weight: @exercise.Weight</p>
-        <p>------------------------</p>
+    @if (Model.WeightExercises != null)
+    {
+        foreach (var exercise in Model.WeightExercises)
+         {
+             <p >Exercise</p>
+             <p>------------------------</p>
+             <p>Id: @exercise.Id</p>
+             <p>Date: @exercise.Date</p>
+             <p>Exercise type: @exercise.ExerciseType</p>
+             <p>Reps: @exercise.Reps</p>
+             <p>Sets: @exercise.Sets</p>
+             <p>Weight: @exercise.Weight</p>
+             <p>------------------------</p>
+         }
     }
 </ul>
 <ul>
-    @foreach (var exercise in Model.CardioExercises)
+    @if(Model.CardioExercises != null)
+    {
+    foreach (var exercise in Model.CardioExercises)
     {
         <p>@exercise.Id</p>
         <p>@exercise.Date</p>
@@ -33,5 +38,6 @@
         <p>@exercise.Distance</p>
         <p>@exercise.Time</p>
         <p>------------------------</p>
+    }
     }
 </ul>
