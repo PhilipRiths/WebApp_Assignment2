@@ -10,11 +10,11 @@
 <p>Height: @Model.Height</p>
 <p>Weight: @Model.Weight</p>
 
-<ul>
-    @if (Model.WeightExercises != null)
-    {
-        foreach (var exercise in Model.WeightExercises)
-         {
+
+ @if(Model.WeightExercises != null)
+ { 
+ foreach (var exercise in Model.WeightExercises)
+ {
              <p >Exercise</p>
              <p>------------------------</p>
              <p>Id: @exercise.Id</p>
@@ -22,22 +22,20 @@
              <p>Exercise type: @exercise.ExerciseType</p>
              <p>Reps: @exercise.Reps</p>
              <p>Sets: @exercise.Sets</p>
-             <p>Weight: @exercise.Weight</p>
-             <p>------------------------</p>
+             <p>Weight:</p> @exercise.Weight
+            
          }
-    }
-</ul>
-<ul>
-    @if(Model.CardioExercises != null)
-    {
-    foreach (var exercise in Model.CardioExercises)
-    {
+ }
+
+@if(Model.CardioExercises != null)
+{ 
+foreach (var exercise in Model.CardioExercises)
+{
         <p>@exercise.Id</p>
         <p>@exercise.Date</p>
         <p>@exercise.CardioType</p>
         <p>@exercise.Distance</p>
-        <p>@exercise.Time</p>
+        <p>@exercise.Time </p>
         <p>------------------------</p>
     }
-    }
-</ul>
+}

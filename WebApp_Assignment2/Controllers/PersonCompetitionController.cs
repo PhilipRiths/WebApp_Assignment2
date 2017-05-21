@@ -96,5 +96,23 @@ namespace WebApp_Assignment2.Controllers
             context.SaveChanges();
             return View("CompetitionDeleted", competition);
         }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var personCompetition = await context.Competitions
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (personCompetition == null)
+            {
+                return NotFound();
+            }
+
+            return View("Details", personCompetition);
+        }
     }
 }

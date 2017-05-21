@@ -99,5 +99,23 @@ namespace WebApp_Assignment2.Controllers
             context.SaveChanges();
             return View("CardioDeleted", cardio);
         }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var cardio = await context.Cardio
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (cardio == null)
+            {
+                return NotFound();
+            }
+
+            return View("Details", cardio);
+        }
     }
 }

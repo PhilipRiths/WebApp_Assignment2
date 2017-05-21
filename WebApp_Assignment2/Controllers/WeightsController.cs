@@ -98,5 +98,23 @@ namespace WebApp_Assignment2.Controllers
             context.SaveChanges();
             return View("GymSessionDeleted", weights);
         }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var weights = await context.Weights
+                .AsNoTracking()
+                .SingleOrDefaultAsync(m => m.Id == id);
+
+            if (weights == null)
+            {
+                return NotFound();
+            }
+
+            return View("Details", weights);
+        }
     }
 }
