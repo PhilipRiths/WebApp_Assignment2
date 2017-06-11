@@ -37,6 +37,61 @@ namespace WebApp_Assignment2.Controllers
 
         }
 
+        public void LoadPeople()
+        {
+            var person = new Person
+            {
+                Age = 25,
+                FirstName = "Philip",
+                LastName = "Ryström",
+                Height = 175,
+                Weight = 80
+            };
+            context.Add(person);
+            var person1 = new Person
+            {
+                Age = 25,
+                FirstName = "Kalle",
+                LastName = "Anka",
+                Height = 160,
+                Weight = 40
+            };
+            context.Add(person1);
+            var person2 = new Person
+            {
+                Age = 25,
+                FirstName = "Knatte",
+                LastName = "Anka",
+                Height = 120,
+                Weight = 30
+            };
+            context.Add(person2);
+            var person3 = new Person
+            {
+                Age = 25,
+                FirstName = "Fnatte",
+                LastName = "Anka",
+                Height = 120,
+                Weight = 30
+            };
+            context.Add(person3);
+            var person4 = new Person
+            {
+                Age = 25,
+                FirstName = "Tjatte",
+                LastName = "Anka",
+                Height = 120,
+                Weight = 30
+            };
+            context.Add(person4);
+            context.SaveChanges();
+        }
+
+        public IActionResult LoadPeoples()
+        {
+            LoadPeople();
+            return Ok();
+        }
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

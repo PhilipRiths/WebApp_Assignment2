@@ -2,7 +2,7 @@
 
 <form asp-controller="Cardio" asp-action="SaveCardio" method="post">
     
-        Cardio type:<br>
+    <b>Cardio type:</b> <br>
     
         <select asp-for="CardioType" >
             <option value="">All</option>
@@ -12,24 +12,24 @@
             <option value="Other">Other</option>
         </select><br/>
   
-    Distance:<br>
+    <b>Distance</b>:<br>
     <div>
         <input type="text" asp-for="Distance"></>
         <span asp-validation-for="Distance" class="text-danger"></span><br />
     </div>
-    Time(Hours/Minutes):<br>
+    <b>Time(Hours/Minutes):</b><br>
     <div>
         <input type="Text" asp-for="Time"></>
         <span asp-validation-for="Time" class="text-danger"></span><br />
     </div>
-    Date:<br />
+    <b>Date:</b><br />
     <div>
         <input type="date" asp-for="Date"></>
         <span asp-validation-for="Date" class="text-danger"></span><br />
     </div>
-    PersonId:<br />
+   <b>PersonId:</b> <br />
     <div>
-        <input type="text " asp-for="PersonId"></>
+        <input type="text" asp-for="PersonId"></>
         <span asp-validation-for="PersonId" class="text-danger"></span><br />
     </div>
     <div asp-validation-summary="All" class="text-danger"></div>

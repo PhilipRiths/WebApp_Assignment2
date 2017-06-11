@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GymBuddy</title>
-
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+    <title >GymBuddy</title>
+    <link rel="icon" type="image/gif" href="~/Images/lion.png" />
     <environment names="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -18,31 +19,37 @@
     </environment>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+<body >
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header" >
               
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">GymBuddy</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Weights" asp-action="Index">Weights</a></li>
-                    <li><a asp-area="" asp-controller="Cardio" asp-action="Index">Cardio</a></li>
-                    <li><a asp-area="" asp-controller="People" asp-action="Index">People</a></li>
-                    <li><a asp-area="" asp-controller="CardioContest" asp-action="Index">Cardio Contest</a></li>
-                    <li><a asp-area="" asp-controller="PersonCompetition" asp-action="Index">Add person to competition</a></li>
-                </ul>
-            </div>
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">GymBuddy</a>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2017 - WebApp_Assignment2</p>
-        </footer>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a asp-area="" asp-controller="Weights" asp-action="Index">Weights</a></li>
+                <li><a asp-area="" asp-controller="Cardio" asp-action="Index">Cardio</a></li>
+                <li><a asp-area="" asp-controller="People" asp-action="Index">People</a></li>
+                <li><a asp-area="" asp-controller="CardioContest" asp-action="Index">Cardio Contest</a></li>
+                <li><a asp-area="" asp-controller="PersonCompetition" asp-action="Index">Add person to competition</a></li>
+            </ul>
+        </div>
     </div>
+</nav>
+<div class="col-md-3">
+    <p class="lead">
+        <img class="img-responsive" alt="gymbuddy'" src="~/Images/lion.png" />
+    </p>
+</div>
+<div class="container body-content">
+ 
+    @RenderBody()
+    <hr/>
+    <footer>
+        <b>&copy; 2017 - Gymbuddy</b>
+    </footer>
+</div>
 
 
        

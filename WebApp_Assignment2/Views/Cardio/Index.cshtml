@@ -1,7 +1,7 @@
 ﻿@model GymBuddyWebApp.Domain.Cardio
 
 <form asp-controller="Cardio" asp-action="Edit" method="post">
-    Id:<br />
+    <p><span>Id:</span></p>
     <div>
         <input type="text" asp-for="Id"></>
         <span asp-validation-for="Id" class="text-danger"></span><br />
@@ -9,7 +9,7 @@
     <button type="Submit"> Edit</button>
 </form>
 <form asp-controller="Cardio" asp-action="Delete" method="post">
-    Delete by Id:<br />
+ <p><span>Delete by Id:</span></p>  
     <div>
         <input type="text" asp-for="Id"></>
         <span asp-validation-for="Id" class="text-danger"></span><br />
@@ -20,7 +20,7 @@
     <button type="Submit"> Create</button>
 </form>
 <form asp-controller="Cardio" asp-action="Details" method="post">
-    Get details by Id:<br />
+    <p><span>Get details by Id:</span></p> 
     <div>
         <input type="text" asp-for="Id"></>
         <span asp-validation-for="Id" class="text-danger"></span><br />
