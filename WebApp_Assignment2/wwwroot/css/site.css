@@ -46,9 +46,20 @@ button {
     border-radius: 12px;
     margin: 2px;
 }
-P {
+#Thumbnail {
+    border-color: crimson !important;
+    border-width: 3px;
+    color: darkgray;
+}
+
+
+h3 {
+    color: crimson !important;
     font-weight: 900;
-    font-size: 125%;
+}
+p {
+    font-weight: 900;
+    font-size: 115%;
     color: crimson !important;
   
   
@@ -76,7 +87,21 @@ b {
     color: Maroon !important;
     font-family: bold;
 }
-
+#Create {
+    background-color: crimson; 
+    border: none;
+    color: gold !important;
+    /*padding: 15px 32px;*/
+    text-align: center;
+    text-decoration: none;
+   
+    display: inline-block;
+    font-size: 32px;
+    border-radius: 6px;
+    margin: 2px;
+    
+   
+}
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -88,9 +113,7 @@ b {
     width: 100%;
 }
 
-p {
-    color: darkgreen !important;
-}
+
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
     /* Hide captions */

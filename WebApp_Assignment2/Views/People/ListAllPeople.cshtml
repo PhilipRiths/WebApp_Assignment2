@@ -1,0 +1,12 @@
+﻿@model WebApp_Assignment2.Models.PersonViewModel
+
+@foreach (var person in Model.Persons)
+{
+    @Html.Partial("PeopleOverviewSummary", person)
+}
+
+<footer>
+    <form asp-controller="People" asp-action="Create" method="post">
+        <button id="Create" type="Submit" class="bottom-right"> Create</button>
+    </form>
+</footer>

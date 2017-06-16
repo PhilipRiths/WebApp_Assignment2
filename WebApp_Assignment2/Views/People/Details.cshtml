@@ -3,39 +3,50 @@
 @{
     ViewData["Title"] = "Title";
 }
-<p>Id: @Model.Id</p>
-<p>Firstname: @Model.FirstName</p>
-<p>Lastname: @Model.LastName</p>
-<p>Age: @Model.Age</p>
-<p>Height: @Model.Height</p>
-<p>Weight: @Model.Weight</p>
+<div class="col-sm-3 col-lg-3 col-md-3">
+<div class="thumbnail" id="thumbnail">
+    <p><span>Id: @Model.Id</span></p>
+    <p><span>Firstname: @Model.FirstName</span></p>
+    <p><span>Lastname: @Model.LastName</span></p>
+    <p><span>Age: @Model.Age</span></p>
+    <p><span>Height: @Model.Height</span></p>
+    <p><span>Weight: @Model.Weight</span></p>
+</div>
+    </div>
 
+        @if (Model.WeightExercises != null)
+        {
+            foreach (var exercise in Model.WeightExercises)
+            {
+                <div class="col-sm-2 col-lg-2 col-md-2">
+                    <div class="thumbnail" id="thumbnail">
+                        <p><span>Exercise</span></p>
 
- @if(Model.WeightExercises != null)
- { 
- foreach (var exercise in Model.WeightExercises)
- {
-             <p >Exercise</p>
-             <p>------------------------</p>
-             <p>Id: @exercise.Id</p>
-             <p>Date: @exercise.Date</p>
-             <p>Exercise type: @exercise.ExerciseType</p>
-             <p>Reps: @exercise.Reps</p>
-             <p>Sets: @exercise.Sets</p>
-             <p>Weight:</p> @exercise.Weight
-            
-         }
- }
+                        <p>Id: @exercise.Id</p>
+                        <p>Date: @exercise.Date</p>
+                        <p>Exercise type: @exercise.ExerciseType</p>
+                        <p>Reps: @exercise.Reps</p>
+                        <p>Sets: @exercise.Sets</p>
+                        <p>Weight: @exercise.Weight</p> 
+                    </div>
+                </div>
+            }
+        }
 
-@if(Model.CardioExercises != null)
-{ 
-foreach (var exercise in Model.CardioExercises)
-{
-        <p>@exercise.Id</p>
-        <p>@exercise.Date</p>
-        <p>@exercise.CardioType</p>
-        <p>@exercise.Distance</p>
-        <p>@exercise.Time </p>
-        <p>------------------------</p>
-    }
-}
+        @if (Model.CardioExercises != null)
+        {
+            foreach (var exercise in Model.CardioExercises)
+            {
+                <div class="col-sm-2 col-lg-2 col-md-2">
+                    <div class="thumbnail" id="thumbnail">
+                        <p><span>Exercise</span></p>
+                        <p>@exercise.Id</p>
+                        <p>@exercise.Date</p>
+                        <p>@exercise.CardioType</p>
+                        <p>@exercise.Distance</p>
+                        <p>@exercise.Time </p>
+
+                    </div>
+                </div>
+            }
+        }

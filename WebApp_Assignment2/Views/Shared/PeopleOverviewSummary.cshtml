@@ -1,0 +1,41 @@
+@model GymBuddyWebApp.Domain.Person
+
+
+<div class="col-sm-4 col-lg-4 col-md-4">
+    <div class="thumbnail" id="Thumbnail" >
+        <div class="caption"  >
+            <h3 class="">@Model.FirstName @Model.LastName</h3>
+            <h3 >    @Model.Age years</h3>
+          
+        </div>
+        <div class="Delete">
+         
+                <form asp-controller="People" asp-action="Delete" method="post">
+                    <div>
+                        <input type="hidden" value="@Model.Id" asp-for="Id"></>
+                    </div>
+                    <button type="Submit"> Delete</button>
+                </form>
+        </div>
+        <form asp-controller="People" asp-action="Edit" method="post">
+            <div>
+                <input type="hidden" value="@Model.Id" asp-for="Id"></>
+            </div>
+            <button type="Submit"> Edit</button>
+        </form>
+        <form asp-controller="People" asp-action="Details" method="post">
+            <div>
+                <input type="hidden" value="@Model.Id" asp-for="Id"></>
+                <span asp-validation-for="Id" class="text-danger"></span><br />
+            </div>
+            <button type="Submit"> Details</button>
+        </form>
+    </div>
+</div>
+
+@*<h2>@Model.FirstName </h2>
+<h2>@Model.LastName</h2>
+<h3>@Model.Id</h3>
+<h3>@Model.Age</h3>
+<h4>@Model.Height</h4>
+<h5>@Model.Weight</h5>*@

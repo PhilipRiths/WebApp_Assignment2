@@ -2,40 +2,34 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<p>@Model.Id</p>
-<p>@Model.FirstName</p>
-<p>@Model.LastName</p>
-<p>@Model.Height</p>
-<p>@Model.Weight</p>
-<p>@Model.Age</p>
-<p></p>
+
 <form asp-controller="People" asp-action="Update" method="get">
     <div>
-        ID:<br>
-        <input type="text" asp-for="Id"><br>
+        <p>ID:</p>
+        <input type="text" asp-for="Id">
         <span asp-validation-for="Id" class="text-danger"></span>
     </div>
     <div>
-        First name:<br>
-        <input type="text" asp-for="FirstName"><br>
+       <p>First name:</p>
+        <input type="text" asp-for="FirstName">
         <span asp-validation-for="FirstName" class="text-danger"></span>
     </div>
-    LastName:<br>
+    <p>LastName:</p>
     <div>
         <input type="text" asp-for="LastName"></>
-        <span asp-validation-for="LastName" class="text-danger"></span><br/>
+        <span asp-validation-for="LastName" class="text-danger"></span>
     </div>
-    Age:<br>
+    <p>Age:</p>
     <div>
         <input type="text" asp-for="Age"></>
-        <span asp-validation-for="Age" class="text-danger"></span><br/>
+        <span asp-validation-for="Age" class="text-danger"></span>
     </div>
-    Height:<br/>
+    <p>Height:</p>
     <div>
-        <input type="text" asp-for="Height"></>
-        <span asp-validation-for="Height" class="text-danger"></span><br/>
+        <input class="" type="text" asp-for="Height"></>
+        <span asp-validation-for="Height" class="text-danger"></span>
     </div>
-    Weight:<br/>
+    <p>Weight:</p>
     <div>
         <input type="text" asp-for="Weight"></>
         <span asp-validation-for="Weight" class="text-danger"></span><br/>
@@ -44,5 +38,5 @@
     <div asp-validation-summary="All" class="text-danger"></div>
 
 
-    <button type="Submit"> Update</button>
+    <button type="Submit" class="col-lg-1" > Update</button>
 </form>

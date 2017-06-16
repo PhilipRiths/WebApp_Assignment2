@@ -7,16 +7,22 @@ using GymBuddyWebApp.Domain;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebApp_Assignment2.Models;
 
 namespace WebApp_Assignment2.Controllers
 {
     public class PeopleController : Controller
     {
         GymBuddyContext context = new GymBuddyContext();
+        public List<Person> Persons = new List<Person>();
 
         // GET: People
         public ActionResult Index()
         {
+            if (Persons.Count < 1)
+            {
+                AddPersonToList();
+            }
             return View();
         }
 
@@ -25,6 +31,15 @@ namespace WebApp_Assignment2.Controllers
             return View();
         }
 
+        public void AddPersonToList()
+        {
+           
+                foreach (var person in context.Persons)
+                {
+                    Persons.Add(person);
+                }
+            
+        }
         public IActionResult ValidatePerson(Person person)
         {
             if (!ModelState.IsValid)
@@ -35,6 +50,20 @@ namespace WebApp_Assignment2.Controllers
             context.SaveChanges();
             return View("PersonAdded", person);
 
+        }
+
+        public IActionResult DeleteMe()
+        {
+            return View();
+        }
+        public ViewResult ListAllPeople()
+        {
+            IEnumerable<Person> persons;
+                persons = context.Persons.OrderBy(p => p.Id);
+return View(new PersonViewModel
+            {
+              Persons = persons
+            });
         }
 
         public void LoadPeople()
