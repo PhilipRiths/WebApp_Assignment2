@@ -102,6 +102,19 @@ b {
     
    
 }
+.slide-image {
+    width: 100%;
+}
+
+.carousel-holder {
+    margin-bottom: 30px;
+}
+
+.carousel-control,
+.item {
+    border-radius: 4px;
+}
+
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
@@ -109,9 +122,21 @@ b {
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+.carousel-inner .item img {
     width: 100%;
 }
+
+.carousel .item {
+    height: 400px;
+}
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 400px;
+}
+
 
 
 /* Hide/rearrange for smaller screens */

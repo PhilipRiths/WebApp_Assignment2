@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+<!DOCTYPE html>
 <html>
 <head>
     
@@ -8,7 +9,7 @@
 <h1><span>"Lift is the gift, swole is the goal, size is the price in the glorious house of gains" - Robert Frank</span></h1>
 <h2><span>Push the button and go from zero to hero</span> </h2>
 <h3></h3>
-
+ 
 <div>
     <img id="fatboi" src="images/fatboi.jpg"  height="400" width="400" />
     <button id="GetJacked">HERO</button>
@@ -19,10 +20,10 @@
     crossorigin="anonymous"></script>
 <script>
     function getJacked() {
-        $("#fatboi").attr('src',"images/rippedguy.png");
+        $("#fatboi").attr('src',"images/Hero.jpg");
     }
     $("#GetJacked").click(getJacked);
 </script>
-
+   
 </body>
 </html>

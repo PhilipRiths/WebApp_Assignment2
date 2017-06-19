@@ -14,6 +14,7 @@
     <Content Include="wwwroot\images\gymbeast.jpg" />
     <Content Include="wwwroot\images\gymbrud.jpg" />
     <Content Include="wwwroot\images\gymdude.jpg" />
+    <Content Include="wwwroot\images\Hero.jpg" />
     <Content Include="wwwroot\images\lion.png" />
     <Content Include="wwwroot\images\lionred.png" />
     <Content Include="wwwroot\images\pattern1.png" />
@@ -37,6 +38,9 @@
   <ItemGroup>
     <ProjectReference Include="..\GymBuddyWebApp.Data\GymBuddyWebApp.Data.csproj" />
     <ProjectReference Include="..\GymBuddyWebApp.Domain\GymBuddyWebApp.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.3.0" />
   </ItemGroup>
 
 </Project>

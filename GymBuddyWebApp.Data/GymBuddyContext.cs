@@ -15,7 +15,7 @@ namespace GymBuddyWebApp.Data
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
-                "Server = (localdb)\\mssqllocaldb; Database = GymBuddy; Trusted_Connection = True; ");
+                "Server=tcp:gymbuddydb.database.windows.net,1433;Initial Catalog=GymBuddyDb;Persist Security Info=False;User ID=prys45@hotmail.com@gymbuddydb;Password=Expressen37;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
         }
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
