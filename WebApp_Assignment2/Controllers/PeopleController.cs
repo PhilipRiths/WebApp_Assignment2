@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GymBuddyWebApp.Data;
 using GymBuddyWebApp.Domain;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ namespace WebApp_Assignment2.Controllers
         public List<Person> Persons = new List<Person>();
 
         // GET: People
+        [Authorize]
         public ActionResult Index()
         {
             if (Persons.Count < 1)
@@ -25,12 +27,12 @@ namespace WebApp_Assignment2.Controllers
             }
             return View();
         }
-
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         public void AddPersonToList()
         {
            
@@ -40,6 +42,7 @@ namespace WebApp_Assignment2.Controllers
                 }
             
         }
+        [Authorize]
         public IActionResult ValidatePerson(Person person)
         {
             if (!ModelState.IsValid)
@@ -51,7 +54,7 @@ namespace WebApp_Assignment2.Controllers
             return View("PersonAdded", person);
 
         }
-
+        [Authorize]
         public IActionResult DeleteMe()
         {
             return View();
@@ -121,6 +124,7 @@ return View(new PersonViewModel
             LoadPeople();
             return Ok();
         }
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -142,8 +146,9 @@ return View(new PersonViewModel
 
             return View("Details", person);
         }
-        
-        
+
+        [Authorize]
+
         public IActionResult Update(int id, Person person)
         {
             if (person == null || person.Id != id)
@@ -168,6 +173,7 @@ return View(new PersonViewModel
             context.SaveChanges();
             return View("Index");
         }
+        [Authorize]
         public async Task<IActionResult> Edit(int id)
         {
             var person = await context.Persons.SingleAsync(p => p.Id == id);
@@ -193,6 +199,7 @@ return View(new PersonViewModel
             }
             return View(person);
         }
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var person = context.Persons.Find(id);

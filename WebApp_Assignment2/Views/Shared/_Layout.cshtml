@@ -8,8 +8,8 @@
     <title >GymBuddy</title>
     <link rel="icon" type="image/gif" href="~/Images/lion.png" />
     <environment names="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/site.css"/>
+        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -20,44 +20,46 @@
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 <body >
+<img class=""/>
 <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header" >
-              
-            <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">GymBuddy</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a asp-area="" asp-controller="Weights" asp-action="Index">Weights</a></li>
-                <li><a asp-area="" asp-controller="Cardio" asp-action="Index">Cardio</a></li>
-                <li><a asp-area="" asp-controller="People" asp-action="ListAllPeople">People</a></li>
-                <li><a asp-area="" asp-controller="CardioContest" asp-action="Index">Cardio Contest</a></li>
-                <li><a asp-area="" asp-controller="PersonCompetition" asp-action="Index">Add person to competition</a></li>
-            </ul>
-        </div>
+  
+    <div class="navbar-collapse collapse">
+      
+       
+        <ul class="nav navbar-nav">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <li><a asp-area="" asp-controller="Home" asp-action="Index"> <img src="images/ic_home_white_24dp_1x.png"/> Home </a></li>
+            <li><a asp-area="" asp-controller="Weights" asp-action="Index"><img src="images/ic_accessibility_white_24dp_1x.png"/> Weights</a></li>
+            <li><a asp-area="" asp-controller="Cardio" asp-action="Index"><img src="images/ic_directions_run_white_24dp_1x.png"/> Cardio</a></li>
+            <li><a asp-area="" asp-controller="People" asp-action="ListAllPeople"><img src="images/ic_people_white_24dp_1x.png"/> People</a></li>
+            <li><a asp-area="" asp-controller="CardioContest" asp-action="Index"> <img src="images/ic_directions_bike_white_24dp_1x.png"/>Cardio Contest</a></li>
+            <li><a asp-area="" asp-controller="PersonCompetition" asp-action="Index"><img src="images/ic_account_circle_white_24dp_1x.png"/> Add person to competition</a></li>
+            <li><a class="pull-right" asp-area="" asp-controller="Auth" asp-action="Logout"> Logout</a></li>
+        }
+            @if (User.Identity.IsAuthenticated == false)
+            {
+                <li><a class="pull-right" asp-area="" asp-controller="Auth" asp-action="Login"> Login</a></li>
+                <li><a class="pull-right" asp-area="" asp-controller="Auth" asp-action="Index"> Register</a></li>
+            }
+        </ul>
     </div>
 </nav>
-<div class="col-md-3">
-    <p class="lead">
-        <img class="img-responsive" alt="gymbuddy'" src="~/Images/lion.png" />
-    </p>
-</div>
 
 <div class="container body-content">
- 
+
     @RenderBody()
- 
+
     <hr/>
-  
+
     <footer>
         <b>&copy; 2017 - Gymbuddy</b>
     </footer>
 </div>
 
 
-       
-  
 
-    @RenderSection("Scripts", required: false)
+
+@RenderSection("Scripts", required: false)
 </body>
 

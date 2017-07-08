@@ -1,14 +1,12 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color: white !important;
-    color: maroon !important;
+    color: white !important;
     font-family: bold;
   
 }
-h1 span { background-color: yellow;}
-h2 span {
-    background-color: aqua;
+div#frm * {
+    display: inline
 }
 
 button {
@@ -16,7 +14,7 @@ button {
     font-family: bold;
 }
 a {
-    color: Orange !important;
+    color: White !important;
     font-weight: 900;
     /*font-size: 150%;*/
 }
@@ -26,14 +24,11 @@ a {
 nav {
     font-family: bold;
     background-color: crimson !important;
-    color: Orange !important;
+    color: White !important;
     min-height: 20%;
     font-size: 125%;
 }
-input[type=text] {
-    border: 2px solid crimson;
-    border-radius: 4px;
-}
+
 button {
     background-color: Orange; 
     border: none;
@@ -46,15 +41,11 @@ button {
     border-radius: 12px;
     margin: 2px;
 }
-#Thumbnail {
-    border-color: crimson !important;
-    border-width: 3px;
-    color: darkgray;
-}
+
 
 
 h3 {
-    color: crimson !important;
+    color: White !important;
     font-weight: 900;
 }
 p {
@@ -70,7 +61,7 @@ form {
 }
 p span {
      
-        color: maroon !important;
+        color: White !important;
     }
 
 .body-content {
@@ -84,7 +75,7 @@ textarea {
     max-width: 280px;
 }
 b {
-    color: Maroon !important;
+    color: White !important;
     font-family: bold;
 }
 #Create {
@@ -101,6 +92,14 @@ b {
     margin: 2px;
     
    
+}
+fieldset 
+{ border-radius: 6px;}
+legend {
+    color: White !important;
+}
+body {
+    background-image: url(../images/grunge_black_by_echoingdroplet-d32grgw.jpg)
 }
 .slide-image {
     width: 100%;

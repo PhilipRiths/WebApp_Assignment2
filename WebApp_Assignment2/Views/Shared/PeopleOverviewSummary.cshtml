@@ -1,39 +1,44 @@
 @model GymBuddyWebApp.Domain.Person
 
+<style>
+    form {display: inline-block;}
+</style>
+<fieldset>
+    <legend>@Model.FirstName @Model.LastName </legend>
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div >
+            <div>
+                <h4> @Model.Age years</h4>
+                <h4> @Model.Id</h4>
 
-<div class="col-sm-4 col-lg-4 col-md-4">
-    <div class="thumbnail" id="Thumbnail" >
-        <div class="caption"  >
-            <h3 class="">@Model.FirstName @Model.LastName</h3>
-            <h3 >    @Model.Age years</h3>
-            <h3> @Model.Id</h3>
-          
-        </div>
-        <div class="Delete">
-         
-                <form asp-controller="People" asp-action="Delete" method="post">
+            </div>
+            
+
+                <form  method="post" asp-controller="People" asp-action="Delete">
                     <div>
                         <input type="hidden" value="@Model.Id" asp-for="Id"></>
                     </div>
-                    <button type="Submit"> Delete</button>
+                    <button type="Submit" class="btn btn-danger"> Delete</button>
                 </form>
+            
+            <form asp-controller="People" asp-action="Edit" method="post">
+                <div>
+                    <input type="hidden" value="@Model.Id" asp-for="Id"></>
+                </div>
+                <button type="Submit" class="btn"> Edit</button>
+            </form>
+            <form asp-controller="People" asp-action="Details" method="post">
+                <div>
+                    <input type="hidden" value="@Model.Id" asp-for="Id"></>
+                    <span asp-validation-for="Id" class="text-danger"></span><br/>
+                </div>
+                <button type="Submit"class="btn"> Details</button>
+            </form>
         </div>
-        <form asp-controller="People" asp-action="Edit" method="post">
-            <div>
-                <input type="hidden" value="@Model.Id" asp-for="Id"></>
-            </div>
-            <button type="Submit"> Edit</button>
-        </form>
-        <form asp-controller="People" asp-action="Details" method="post">
-            <div>
-                <input type="hidden" value="@Model.Id" asp-for="Id"></>
-                <span asp-validation-for="Id" class="text-danger"></span><br />
-            </div>
-            <button type="Submit"> Details</button>
-        </form>
     </div>
-</div>
-
+    
+   
+</fieldset>
 @*<h2>@Model.FirstName </h2>
 <h2>@Model.LastName</h2>
 <h3>@Model.Id</h3>

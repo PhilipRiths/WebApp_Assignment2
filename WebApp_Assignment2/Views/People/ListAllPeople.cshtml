@@ -1,9 +1,11 @@
-﻿@model WebApp_Assignment2.Models.PersonViewModel
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model WebApp_Assignment2.Models.PersonViewModel
 
-@foreach (var person in Model.Persons)
-{
-    @Html.Partial("PeopleOverviewSummary", person)
-}
+    @foreach (var person in Model.Persons)
+    {
+        @Html.Partial("PeopleOverviewSummary", person)
+   
+    }
 
 <footer>
     <form asp-controller="People" asp-action="Create" method="post">
